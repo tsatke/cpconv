@@ -26,6 +26,9 @@ func (c Converter) Convert(from io.Reader, to io.Writer) error {
 		}
 	}
 
+	decoder := c.FromCodepage.NewDecoder()
+	encoder := c.ToCodepage.NewEncoder()
+
 	buffer := make([]byte, c.BufferSize)
 	exitAfterConversion := false
 	for !exitAfterConversion {
@@ -38,11 +41,11 @@ func (c Converter) Convert(from io.Reader, to io.Writer) error {
 		} else if err != nil {
 			return fmt.Errorf("read: %w", err)
 		}
-		decoded, err := c.FromCodepage.NewDecoder().Bytes(buffer[:n])
+		decoded, err := decoder.Bytes(buffer[:n])
 		if err != nil {
 			return fmt.Errorf("decode: %w", err)
 		}
-		encoded, err := c.ToCodepage.NewEncoder().Bytes(decoded)
+		encoded, err := encoder.Bytes(decoded)
 		if err != nil {
 			return fmt.Errorf("encode: %w", err)
 		}
