@@ -1,5 +1,18 @@
-# cpconv
-A codepage converter. Has a Go API as well as a command line tool. Use it to convert streams from one codepage into another.
+
+<p align="center"></p>
+<p align="center">
+    <h1 align="center">cpconv</h1>
+    <p align="center">A codepage converter. Has a Go API as well as a command line tool. Use it to convert streams from one codepage into another.</p>
+    <p align="center">
+        <a href="https://github.com/tsatke/cpconv/actions"><img src="https://github.com/tsatke/cpconv/workflows/Build/badge.svg"></a>
+        <a href="https://github.com/tsatke/cpconv/actions"><img src="https://github.com/tsatke/cpconv/workflows/Tests/badge.svg"></a>
+        <a href="https://github.com/tsatke/cpconv/actions"><img src="https://github.com/tsatke/cpconv/workflows/Static%20analysis/badge.svg"></a>
+        <br>
+        <img src="https://img.shields.io/badge/status-WIP-yellow">
+    </p>
+</p>
+
+---
 
 ## Installation
 Go get it with
