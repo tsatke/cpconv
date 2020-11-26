@@ -5,12 +5,22 @@ import (
 	"io"
 )
 
+// Converter is an object that can copy a reader to a writer while performing a codepage conversion.
+// See Convert for more info.
 type Converter struct {
+	// FromCodepage is the codepage that is used to decode the reader.
 	FromCodepage Codepage
-	ToCodepage   Codepage
-	BufferSize   int
+	// ToCodepage is the codepage that will be used to encode decoded bytes from the reader.
+	// Bytes of this codepage will be written to the writer.
+	ToCodepage Codepage
+	// BufferSize is the size of the buffer that will be used for conversion.
+	BufferSize int
 }
 
+// Convert performs a codepage conversion of bytes from the reader and writes them to the writer.
+// If the buffer size of this converter is zero (i.e. not specified), this will fail.
+// If the converter uses the same codepage for reading as for writing, the reader will simply
+// be copied to the writer, using the buffer size of this converter.
 func (c Converter) Convert(from io.Reader, to io.Writer) error {
 	// check if buffer size is 0, because if so, this would run indefinitely
 	if c.BufferSize == 0 {

@@ -6,6 +6,7 @@ import (
 )
 
 var (
+	// TheVersion is the version of this tool. This is set by the CI.
 	TheVersion = "0.0.0-alpha"
 )
 
