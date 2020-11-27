@@ -24,7 +24,6 @@ or just import it with
 import "github.com/tsatke/cpconv"
 ```
 and see a usage example below
-```
 
 ## Usage (as command line tool)
 ```plain
