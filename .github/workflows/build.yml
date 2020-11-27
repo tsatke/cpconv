@@ -1,15 +1,6 @@
 name: Build
 on:
   push:
-    tags:
-      - *
-    release:
-      types:
-        - created
-    branches:
-      - main
-      - develop
-      - release/*
   pull_request:
 jobs:
 
